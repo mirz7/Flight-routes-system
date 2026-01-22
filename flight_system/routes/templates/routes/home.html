@@ -1,0 +1,36 @@
+{% extends 'routes/base.html' %}
+
+{% block title %}Home - Flight Routes System{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Flight Routes System</h1>
+    <p> Airport Routes Management</p>
+</div>
+
+<div class="cards-grid">
+    <div class="card">
+        <h3>Add Route</h3>
+        <p>Create a new airport route with airport code, position, and duration.</p>
+        <a href="{% url 'add_route' %}" class="btn btn-primary">Go to Add Route</a>
+    </div>
+    
+    <div class="card">
+        <h3>Question 1: Find Nth Node</h3>
+        <p>Find the Nth left or right node in an airport route.</p>
+        <a href="{% url 'find_nth_node' %}" class="btn btn-primary">Search Nth Node</a>
+    </div>
+    
+    <div class="card">
+        <h3>Question 2: Find Longest Route</h3>
+        <p>Find the longest route based on duration from an airport.</p>
+        <a href="{% url 'find_longest_route' %}" class="btn btn-primary">Find Longest Route</a>
+    </div>
+    
+    <div class="card">
+        <h3>Question 3: Find Shortest Route</h3>
+        <p>Find the shortest route between two airports based on duration.</p>
+        <a href="{% url 'find_shortest_route' %}" class="btn btn-primary">Find Shortest Route</a>
+    </div>
+</div>
+{% endblock %}

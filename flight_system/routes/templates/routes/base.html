@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flight Routes System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'routes/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="navbar-brand">Flight Routes System</a>
+            <ul class="nav-menu">
+                <li><a href="{% url 'add_route' %}">Add Route</a></li>
+                <li><a href="{% url 'find_nth_node' %}">Find Nth Node</a></li>
+                <li><a href="{% url 'find_longest_route' %}">Find Longest Route</a></li>
+                <li><a href="{% url 'find_shortest_route' %}">Find Shortest Route</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="btn-close" onclick="this.parentElement.style.display='none'">&times;</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
+

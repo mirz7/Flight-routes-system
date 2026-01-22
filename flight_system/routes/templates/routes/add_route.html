@@ -1,0 +1,56 @@
+{% extends 'routes/base.html' %}
+
+{% block title %}Add Route - Flight Routes System{% endblock %}
+
+{% block content %}
+<div class="content-box">
+    <h2>Add Airport Route</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-text">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        
+        <button type="submit" class="btn btn-primary">Add Route</button>
+    </form>
+    
+    {% if routes %}
+    <div class="routes-section">
+        <h3>Existing Routes</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Direction</th>
+                    <th>Duration (min)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for route in routes %}
+                <tr>
+                    <td>{{ route.from_airport.code }}</td>
+                    <td>{{ route.to_airport.code }}</td>
+                    <td>{{ route.get_direction_display }}</td>
+                    <td>{{ route.duration }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

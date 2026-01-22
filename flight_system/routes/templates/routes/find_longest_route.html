@@ -1,0 +1,40 @@
+{% extends 'routes/base.html' %}
+
+{% block title %}Find Longest Route - Flight Routes System{% endblock %}
+
+{% block content %}
+<div class="content-box">
+    <h2>Question 2: Find Longest Route from Airport</h2>
+    <p class="description">Find the route with the maximum duration from the selected airport.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-text">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-primary">Find Longest Route</button>
+    </form>
+    
+    {% if result %}
+    <div class="result-box {% if result.success %}result-success{% else %}result-error{% endif %}">
+        <h4>Result</h4>
+        {% if result.success %}
+            <p><strong>From Airport:</strong> {{ result.airport.code }}</p>
+            <p><strong>Longest Route To:</strong> {{ result.to_airport.code }}</p>
+            <p><strong>Direction:</strong> {{ result.direction|title }}</p>
+            <p><strong>Duration:</strong> {{ result.duration }} minutes</p>
+        {% else %}
+            <p class="error-message">{{ result.message }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
