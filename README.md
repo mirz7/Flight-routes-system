@@ -12,8 +12,7 @@ Django web application for managing airport routes and flight connections.
 
 ## Tech Stack
 
-- Python 3.x
-- Django 4.x
+- Django 
 - SQLite (default)
 - HTML/CSS
 
@@ -22,6 +21,7 @@ Django web application for managing airport routes and flight connections.
 ## Demo Video
 
 https://github.com/user-attachments/assets/8301c20d-2395-4c0d-8e4e-c29f2062a24f
+
 
 
 
