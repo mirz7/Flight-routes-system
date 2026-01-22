@@ -1,4 +1,4 @@
-﻿# Django Flight Routes System
+﻿# Django Flight Routes System (MACHINE TEST)
 
 Django web application for managing airport routes and flight connections.
 
@@ -22,5 +22,6 @@ Django web application for managing airport routes and flight connections.
 ## Demo Video
 
 https://github.com/user-attachments/assets/8301c20d-2395-4c0d-8e4e-c29f2062a24f
+
 
 
